@@ -7,7 +7,6 @@ const router                    = require('./router');
 
 databaseCon.then((dbConnection)=>{
     console.log('Database connection is Successfully.');
-    global.__db__ = dbConnection;
 
     const app = express();
     app.use(bodyParser.json());

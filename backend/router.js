@@ -5,9 +5,9 @@ const routes = [
         callback: require('./modules/all/corsAllowHeaders')
     },
     {
-        method: 'get',
-        path: '/',
-        callback: require('./modules/get/default')
+        method: 'post',
+        path: '/users',
+        callback: require('./modules/post/users')
     }
 ];
 

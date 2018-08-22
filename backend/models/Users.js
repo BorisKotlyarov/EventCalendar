@@ -4,12 +4,12 @@ const crypto                    = require('crypto');
 const {Schema} = mongoose;
 
 const schema = new Schema({
-    _id         : Schema.Types.ObjectId,
-    login       : {
+    _id: Schema.Types.ObjectId,
+    login: {
         type: String,
         unique: true
     },
-    password    : String,
+    password: String,
 });
 
 schema.statics.insert = function (data) {
