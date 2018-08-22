@@ -1,14 +1,15 @@
 const Users = require('../../models/Users');
 
-module.exports = (request, response)=>{
+
+module.exports = (request, response)=> {
 
     Users.insert({
         login: request.body.login,
         password: request.body.password
-    }).then((data)=> {
+    }).then((data) => {
         response.json(data);
-    }).catch((error)=> {
+    }).catch((error) => {
         response.json(error);
     });
 
-}
+};
