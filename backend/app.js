@@ -2,7 +2,7 @@ const express                   = require('express');
 const bodyParser                = require('body-parser');
 const databaseCon               = require('./dbConnection');
 const config                    = require('./config');
-//const router                    = require('./router');
+const router                    = require('./router');
 
 
 databaseCon.then((dbConnection)=>{
@@ -17,7 +17,7 @@ databaseCon.then((dbConnection)=>{
         next();
     });
 
-    //router(app);
+    router(app);
 
     app.listen(config.server.port, () => {
         console.log(`Server is started at http://localhost:${config.server.port}`);
