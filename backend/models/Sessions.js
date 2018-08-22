@@ -1,4 +1,6 @@
 const mongoose                  = require('mongoose');
+const crypto                    = require('crypto');
+
 
 const {Schema} = mongoose;
 
@@ -14,15 +16,15 @@ const schema = new Schema({
     }
 });
 
-schema.statics.insert = function (data) {
+schema.statics.insert = function (userId) {
     let Model = this;
 
+    let token = crypto.createHash('md5').update(`${userId}:${new Date().getTime()}`).digest("hex");
+
     let instance = new Model({
-        date: data.date,
-        start: data.start,
-        duration: data.duration,
-        title: data.title,
-        user: data.user
+        token,
+        state: 'active',
+        user: userId
     });
 
     return new Promise((resolve, reject)=>{
