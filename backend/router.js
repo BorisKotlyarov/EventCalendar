@@ -13,6 +13,11 @@ const routes = [
         method: 'post',
         path: '/authorize',
         callback: require('./modules/post/authorize')
+    },
+    {
+        method: 'post',
+        path: '/authorize/close',
+        callback: require('./modules/post/authorizeClose')
     }
 ];
 
