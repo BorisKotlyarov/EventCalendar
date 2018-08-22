@@ -1,6 +1,6 @@
 const mongoose                  = require('mongoose');
 const crypto                    = require('crypto');
-
+const Sessions                  = require('./Sessions');
 
 const {Schema} = mongoose;
 
@@ -30,5 +30,19 @@ schema.statics.insert = function (data) {
     });
 };
 
+schema.statics.bySessionToken = function (token) {
+    let Model = this;
+
+    return Sessions.byToken(token).then((session) => {
+        return new Promise((resolve, reject) => {
+            Model.findOne({_id: session.user}, (error, user) => {
+                if (error) {
+                    reject(error);
+                }
+                resolve(user);
+            });
+        })
+    });
+};
 
 module.exports = mongoose.model('Users', schema);
