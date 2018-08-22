@@ -3,14 +3,14 @@ const Sessions                  = require('../../models/Sessions');
 const Users                     = require('../../models/Users');
 
 
-module.exports = (request, response)=>{
+module.exports = (request, response)=> {
 
     request.body.password = crypto.createHash('md5').update(request.body.password).digest("hex");
 
     Users.find({
         login: request.body.login,
         password: request.body.password
-    }, (error, result)=> {
+    }, (error, result) => {
 
         if (0 == result.length) {
             response.status(403).send({error: 403, message: 'Forbidden'});
@@ -25,4 +25,4 @@ module.exports = (request, response)=>{
 
     });
 
-}
+};
