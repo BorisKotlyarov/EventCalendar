@@ -8,6 +8,11 @@ const routes = [
         method: 'post',
         path: '/users',
         callback: require('./modules/post/users')
+    },
+    {
+        method: 'post',
+        path: '/authorize',
+        callback: require('./modules/post/authorize')
     }
 ];
 
