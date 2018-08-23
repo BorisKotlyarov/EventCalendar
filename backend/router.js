@@ -5,6 +5,11 @@ const routes = [
         callback: require('./modules/all/corsAllowHeaders')
     },
     {
+        method: 'get',
+        path: '/users',
+        callback: require('./modules/get/users')
+    },
+    {
         method: 'post',
         path: '/users',
         callback: require('./modules/post/users')
@@ -18,6 +23,11 @@ const routes = [
         method: 'post',
         path: '/authorize/close',
         callback: require('./modules/post/authorizeClose')
+    },
+    {
+        method: 'post',
+        path: '/schedules',
+        callback: require('./modules/post/schedules')
     }
 ];
 
