@@ -25,14 +25,14 @@ const routes = [
         callback: require('./modules/post/authorizeClose')
     },
     {
-        method: 'post',
+        method: 'get',
         path: '/schedules',
-        callback: require('./modules/post/schedules')
+        callback: require('./modules/get/schedules')
     }
 ];
 
 module.exports = function (app) {
-    routes.forEach((route)=>{
+    routes.forEach((route) => {
         app[route.method](route.path, route.callback);
     });
 };
