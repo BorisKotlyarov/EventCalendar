@@ -22,9 +22,11 @@ schema.statics.insert = function (data) {
         password: crypto.createHash('md5').update(data.password).digest("hex")
     });
 
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         instance.save((error, responseData) => {
-            if(error) { reject(error); }
+            if (error) {
+                reject(error);
+            }
             resolve(responseData);
         });
     });
@@ -35,6 +37,10 @@ schema.statics.bySessionToken = function (token) {
 
     return Sessions.byToken(token).then((session) => {
         return new Promise((resolve, reject) => {
+            if (!session) {
+                resolve(session);
+            }
+
             Model.findOne({_id: session.user}, (error, user) => {
                 if (error) {
                     reject(error);
