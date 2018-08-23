@@ -33,6 +33,11 @@ const routes = [
         method: 'post',
         path: '/schedules',
         callback: require('./modules/post/schedules')
+    },
+    {
+        method: 'delete',
+        path: '/schedules/:scheduleId',
+        callback: require('./modules/delete/schedules')
     }
 ];
 
