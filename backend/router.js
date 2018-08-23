@@ -28,6 +28,11 @@ const routes = [
         method: 'get',
         path: '/schedules',
         callback: require('./modules/get/schedules')
+    },
+    {
+        method: 'post',
+        path: '/schedules',
+        callback: require('./modules/post/schedules')
     }
 ];
 

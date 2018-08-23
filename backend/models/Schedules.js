@@ -4,9 +4,18 @@ const {Schema} = mongoose;
 
 const schema = new Schema({
     date: Number,
-    start: Number,
-    duration: Number,
-    title: String,
+    start: {
+        type: Number,
+        required: true
+    },
+    duration: {
+        type: Number,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
@@ -15,9 +24,11 @@ const schema = new Schema({
 
 schema.statics.insert = function (data) {
     let Model = this;
+    let currentDate =  new Date();
+    currentDate.setHours(0, 0, 0, 0);
 
     let instance = new Model({
-        date: data.date,
+        date: currentDate.getTime(),
         start: data.start,
         duration: data.duration,
         title: data.title,
