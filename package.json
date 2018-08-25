@@ -1,21 +1,33 @@
 {
   "name": "event-calendar",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "vue-html-loader": "latest",
-    "node-static": "latest",
-    "webpack": "latest",
-    "vue": "latest",
-    "vuex": "latest",
-    "sass-loader": "latest",
-    "node-sass": "latest",
-    "css-loader": "latest"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.4.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
-    "static": "static frontend/dist -p 3003"
+    "dev": "webpack-dev-server --mode development --hot --open --content-base",
+    "build": "webpack --mode production --progress"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
